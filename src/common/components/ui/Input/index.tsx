@@ -3,10 +3,11 @@ import { twMerge } from "tailwind-merge";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
+  error?: string;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ label, ...rest }, ref) => {
+  ({ label, error, ...rest }, ref) => {
     return (
       <div className="space-y-3 flex flex-col">
         {label && <label id={rest.id}>{label}</label>}
@@ -18,6 +19,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             rest.className
           )}
         ></input>
+
+        {error && <span className="text-red-500">{error}</span>}
       </div>
     );
   }
