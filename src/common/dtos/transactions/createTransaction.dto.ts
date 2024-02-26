@@ -1,4 +1,4 @@
-import { TransactionTypeEnum } from "@/common/enums/transactionTypeEnum";
+import { TransactionTypeEnum } from "@/common/enums/transactions/transactionTypeEnum";
 
 export interface CreateTransactionsDTO {
   amount: number;

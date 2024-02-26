@@ -1,17 +1,39 @@
+"use client";
 import { Button } from "@/common/components/ui/Button";
+import { usePathname, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { CreateTransactionModal } from "../Modals/CreateTransaction";
+import { useState } from "react";
 
 export const Header = () => {
-  return (
-    <header className="container mx-auto flex justify-between md:items-center gap-8 md:gap-0 flex-col md:flex-row">
-      <div>
-        <h1 className="text-2xl">MinimaGastos</h1>
-      </div>
+  const [isTransactionModalOpen, setIsTransactionModalOpen] = useState(false);
 
-      <div>
-        <Button variation="secondary" size="md">
-          Nova transação
-        </Button>
-      </div>
-    </header>
+  const handleToggleTransactionModal = () => {
+    setIsTransactionModalOpen((prev) => !prev);
+  };
+  return (
+    <>
+      <header className="container mx-auto flex justify-between md:items-center gap-8 md:gap-0 flex-col md:flex-row">
+        <div>
+          <h1 className="text-2xl">MinimaGastos</h1>
+        </div>
+
+        <div>
+          <Button
+            onClick={handleToggleTransactionModal}
+            variation="secondary"
+            size="md"
+            type="button"
+          >
+            Nova transação
+          </Button>
+        </div>
+      </header>
+
+      <CreateTransactionModal
+        onClose={() => setIsTransactionModalOpen(false)}
+        open={isTransactionModalOpen}
+      />
+    </>
   );
 };

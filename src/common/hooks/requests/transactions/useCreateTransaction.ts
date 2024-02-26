@@ -1,5 +1,5 @@
-import { fetchWrapper } from "@/common/core/fetchWrapper";
-import { CreateTransactionsDTO } from "@/common/dtos/transaction/createTransaction.dto";
+import { fetchWrapper } from "@/common/lib/fetchWrapper";
+import { CreateTransactionsDTO } from "@/common/dtos/transactions/createTransaction.dto";
 import { useCallback } from "react";
 
 export function useCreateTransaction() {

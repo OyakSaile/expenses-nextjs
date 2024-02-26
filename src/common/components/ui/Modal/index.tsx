@@ -4,7 +4,7 @@ import { Modal as MuiModal } from "@mui/material";
 
 export interface ModalProps extends DialogHTMLAttributes<HTMLDialogElement> {
   open: boolean;
-  onClose?: () => void;
+  onClose: () => void;
   children?: any;
 }
 

@@ -3,13 +3,14 @@ import { createTransactionSchemaValidation } from "@/app/dashboard/validations/c
 import { Button } from "@/common/components/ui/Button";
 import { Input } from "@/common/components/ui/Input";
 import { Modal, ModalProps } from "@/common/components/ui/Modal";
-import { CreateTransactionsDTO } from "@/common/dtos/transaction/createTransaction.dto";
-import { TransactionTypeEnum } from "@/common/enums/transactionTypeEnum";
-import { useCreateTransaction } from "@/common/requests/transactions/useCreateTransaction";
+import { CreateTransactionsDTO } from "@/common/dtos/transactions/createTransaction.dto";
+import { TransactionTypeEnum } from "@/common/enums/transactions/transactionTypeEnum";
+import { useCreateTransaction } from "@/common/hooks/requests/transactions/useCreateTransaction";
 import { ArrowDownCircleIcon, ArrowUpCircleIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
 
 interface CreateTransactionModalProps extends ModalProps {}
+
 export const CreateTransactionModal = ({
   ...rest
 }: CreateTransactionModalProps) => {
@@ -26,7 +27,8 @@ export const CreateTransactionModal = ({
   const { createTransaction } = useCreateTransaction();
 
   const handleCreateTransaction = async (data: CreateTransactionsDTO) => {
-    console?.log(data);
+    rest?.onClose();
+
     createTransaction({
       ...data,
       amount: Number(data.amount),

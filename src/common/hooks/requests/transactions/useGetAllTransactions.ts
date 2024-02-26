@@ -1,5 +1,5 @@
-import { fetchWrapper } from "@/common/core/fetchWrapper";
-import { ListAllTransactionsDTO } from "@/common/dtos/transaction/listAllTransaction.dto";
+import { fetchWrapper } from "@/common/lib/fetchWrapper";
+import { ListAllTransactionsDTO } from "@/common/dtos/transactions/listAllTransaction.dto";
 
 export const useGetAllTransactions = async () => {
   const data = await fetchWrapper<ListAllTransactionsDTO[]>(
