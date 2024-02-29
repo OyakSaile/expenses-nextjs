@@ -1,8 +1,8 @@
 "use client";
 import { createTransactionSchemaValidation } from "@/app/dashboard/validations/createTransactionSchema";
-import { Button } from "@/common/components/ui/Button";
-import { Input } from "@/common/components/ui/Input";
-import { Modal, ModalProps } from "@/common/components/ui/Modal";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
+import { Modal, ModalProps } from "@/components/ui/Modal";
 import { CreateTransactionsDTO } from "@/common/dtos/transactions/createTransaction.dto";
 import { TransactionTypeEnum } from "@/common/enums/transactions/transactionTypeEnum";
 import { useCreateTransaction } from "@/common/hooks/requests/transactions/useCreateTransaction";

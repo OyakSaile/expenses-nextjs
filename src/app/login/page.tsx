@@ -1,5 +1,6 @@
 import { PiggyBank } from "lucide-react";
 import { FormLogin } from "./components/FormLogin";
+import { Button } from "@/components/ui/Button";
 
 export default function Login() {
   return (
@@ -14,6 +15,7 @@ export default function Login() {
         <p className="text-sm text-gray-500">Por favor, entre com sua conta.</p>
 
         <FormLogin />
+
       </div>
 
       <div className="p-4 hidden lg:flex h-full w-full">

@@ -6,7 +6,8 @@ export const useGetAllTransactions = async () => {
     "http://localhost:3333/transaction",
     {
       next: {
-        revalidate: 60 * 10, // 10 minutes
+        revalidate: 60 * 10, // 1 minute
+        tags: ["get-transactions"],
       },
     }
   );

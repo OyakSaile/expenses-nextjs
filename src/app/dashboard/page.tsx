@@ -6,6 +6,7 @@ import { useGetAllTransactions } from "@/common/hooks/requests/transactions/useG
 export default async function Dashboard() {
   const transactions = await useGetAllTransactions();
 
+  console.log(transactions);
   return (
     <div className="w-full min-h-screen p-4 bg-black text-white">
       <Header />

@@ -1,14 +1,18 @@
 "use client";
-import { Button } from "@/common/components/ui/Button";
-import { Input } from "@/common/components/ui/Input";
+import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/ui/Input";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import {
   LoginSchema,
   loginSchemaValidation,
 } from "../../validations/loginSchema";
+import { useSignIn } from "@/common/hooks/requests/sigin/useSign";
+import { Label } from "@/components/ui/label";
 
 export const FormLogin = () => {
+  const { signIn } = useSignIn();
+
   const {
     register,
     handleSubmit,
@@ -18,8 +22,12 @@ export const FormLogin = () => {
     mode: "onSubmit",
   });
 
-  const handleLogin = (data: LoginSchema) => {
-    console.log(data);
+  const handleLogin = async (data: LoginSchema) => {
+    try {
+      await signIn(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -27,22 +35,29 @@ export const FormLogin = () => {
       onSubmit={handleSubmit(handleLogin)}
       className="grid grid-cols-1 gap-8 mt-8"
     >
-      <Input
-        {...register("email")}
-        label="E-mail"
-        type="email"
-        error={errors.email?.message}
-      />
+      <div className="space-y-2">
+        <Label htmlFor="email">Seu e-mail</Label>
+        <Input
+          id="email"
+          {...register("email")}
+          type="email"
+          // error={errors.email?.message}
+        />
+      </div>
 
-      <Input
-        {...register("password")}
-        label="Senha"
-        type="password"
-        error={errors.password?.message}
-      />
+      <div className="space-y-2">
+        <Label htmlFor="password">Sua senha</Label>
+        <Input
+          id="password"
+          {...register("password")}
+          type="password"
+          // error={errors.password?.message}
+        />
+      </div>
 
       <Link href="#">Esqueceu sua senha?</Link>
-      <Button>Entrar</Button>
+
+      <Button size="lg">Entrar</Button>
     </form>
   );
 };

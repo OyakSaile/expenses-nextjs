@@ -1,7 +1,5 @@
 "use client";
-import { Button } from "@/common/components/ui/Button";
-import { usePathname, useSearchParams } from "next/navigation";
-import { useRouter } from "next/navigation";
+import { Button } from "@/components/ui/Button";
 import { CreateTransactionModal } from "../Modals/CreateTransaction";
 import { useState } from "react";
 
@@ -31,7 +29,7 @@ export const Header = () => {
       </header>
 
       <CreateTransactionModal
-        onClose={() => setIsTransactionModalOpen(false)}
+        onClose={() => setIsTransactionModalOpen(true)}
         open={isTransactionModalOpen}
       />
     </>
